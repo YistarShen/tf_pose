@@ -59,7 +59,8 @@ class dataloader(tfds_Base):
 
     """
 
-    def __init__(self,
+    def __init__(
+            self,
             tfrec_datasets_list : List[Dict],
             codec : Optional[dict] = None,
             batch_size : Optional[int]=256,
@@ -122,26 +123,10 @@ class dataloader(tfds_Base):
                             tfrecords_dir : str) -> int:
         return self.ds_TotalSamples 
     
-    def get_ds_TotalSamples_test(self) -> int:
-        return self.tfrec_parser.get_TotalSamples(log=False)
+    # def get_ds_TotalSamples_test(self) -> int:
+    #     return self.tfrec_parser.get_TotalSamples(log=False)
 
 
-    # def encoder(self, 
-    #             data : dict) -> Tuple[Tensor,Tensor,Tensor]:
-
-    #     """ generate codec results (targets) 
-    #         in order to meet your model's output shapes, pack imge, y_true and sample_weights
-    #         for training
-    #     Args:
-    #         data (dict): data from preprocessing or argument function
-    #     Returns:
-    #         targets (tensor): generated ground true data for training
-    #         i.e. : [ imgae, heatmap, sample_weights ]@ pose2d det
-    #     """ 
-    #     #if hasattr(self,"codec"): 
-    #     assert hasattr(self,'codec'), '@pose_dataloader.encoder'
-    #     return self.codec.encode(data)
-    
     def encoder(
             self, data : dict
     ) -> dict:

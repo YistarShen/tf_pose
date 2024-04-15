@@ -102,11 +102,8 @@ class BaseBackbone(tf.keras.Model):
             self.pretrained_weights_path, 
             load_weights_skip_mismatch
         )   
-        # if pretrained :
-        #     self.load_pretrained_weights(self.pretrained_weights_path, 
-        #                                 pretrained_weights_skip_mismatch)
- 
 
+ 
     def load_pretrained_weights(
             self, 
             pretrained_weights_path : str = None, 
@@ -133,19 +130,6 @@ class BaseBackbone(tf.keras.Model):
             )
             
              
-
-
-        # super().load_weights(filepath = pretrained_weights_path,
-        #                     by_name = True,
-        #                     skip_mismatch = skip_mismatch)  
-            
-        # if not isinstance(pretrained_weights_path, (str, None)):
-        #     raise TypeError("pretrained_weights_path must be 'str' type"
-        #                    f"but got '{type(pretrained_weights_path)}'"
-        # )
-
-
-    
     def parse_preprocessor(self, 
                         data_preprocessor : dict = None):
         'TO List to compose multilayers, i.e. reszie layer-> img_norm_layer'
